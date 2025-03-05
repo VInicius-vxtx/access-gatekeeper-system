@@ -14,13 +14,13 @@ const Index = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
             to="/login" 
-            className="px-6 py-3 bg-sistema-accent hover:bg-sistema-accent-hover text-white rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1"
+            className="px-6 py-3 bg-sistema-bg-primary hover:bg-sistema-bg-secondary text-sistema-accent border border-sistema-border rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1"
           >
             Entrar no Sistema
           </Link>
           <Link 
             to="/registro" 
-            className="px-6 py-3 bg-sistema-input-bg hover:bg-sistema-bg-secondary border border-sistema-border text-sistema-text-primary rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1"
+            className="px-6 py-3 bg-sistema-bg-primary hover:bg-sistema-bg-secondary border border-sistema-border text-sistema-text-primary rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1"
           >
             Criar Conta
           </Link>

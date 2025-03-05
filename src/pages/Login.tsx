@@ -33,7 +33,7 @@ const Login = () => {
       {/* Seção da imagem (visível apenas em telas médias ou maiores) */}
       <div className="hidden md:flex md:flex-1 bg-gradient-to-tr from-black/60 to-transparent">
         <img 
-          src="public/lovable-uploads/17d5645b-a6e9-4eaa-8e96-9b3d53e146b5.png" 
+          src="public/lovable-uploads/teste.png" 
           alt="Naturalmente Magra" 
           className="w-full h-full object-cover"
         />

@@ -39,7 +39,7 @@ const Register = () => {
       {/* Seção da imagem (visível apenas em telas médias ou maiores) */}
       <div className="hidden md:flex md:flex-1 bg-gradient-to-tr from-black/60 to-transparent">
         <img 
-          src="/lovable-uploads/MockupCelularNew.png" 
+          src="public/lovable-uploads/MockupCelularNew.png" 
           alt="Sistema de Gestão" 
           className="w-full h-full object-cover opacity-80"
         />

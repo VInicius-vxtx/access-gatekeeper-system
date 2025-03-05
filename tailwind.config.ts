@@ -75,8 +75,9 @@ export default {
 					'bg-secondary': '#242424',
 					'text-primary': '#ffffff',
 					'text-secondary': '#a0a0a0',
-					'accent': 'hsla(0, 100%, 52%, 0.993)',
-					'accent-hover': 'hsl(355, 100%, 61%)',
+					'accent': '#7FFF00', // Chartreuse
+					'accent-hover': '#90EE90', // Light green para hover
+					'accent-important': '#FF69B4', // Hotpink para elementos importantes
 					'border': '#333333',
 					'input-bg': '#2a2a2a',
 					'error': '#ef4444',

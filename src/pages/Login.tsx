@@ -42,7 +42,7 @@ const Login = () => {
       {/* Seção do formulário */}
       <div className="flex-1 flex items-center justify-center p-8 bg-sistema-bg-secondary">
         <div className="w-full max-w-md animate-slide-in">
-          <h1 className="text-3xl font-semibold mb-2 bg-gradient-to-r from-sistema-accent to-sistema-accent-hover bg-clip-text text-transparent">
+          <h1 className="text-3xl font-semibold mb-2 bg-gradient-to-r from-sistema-accent-important to-sistema-accent-important/80 bg-clip-text text-transparent">
             Bem-vindo ao Sistema
           </h1>
           <p className="text-sistema-text-secondary mb-8">
@@ -94,7 +94,7 @@ const Login = () => {
             <button 
               type="submit" 
               disabled={isLoading}
-              className="w-full py-4 bg-sistema-accent hover:bg-sistema-accent-hover text-white rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 flex justify-center items-center"
+              className="w-full py-4 bg-sistema-accent-important hover:bg-sistema-accent-important/80 text-white rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 flex justify-center items-center"
             >
               {isLoading ? (
                 <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

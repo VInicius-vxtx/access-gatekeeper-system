@@ -22,6 +22,9 @@ export default {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 			},
+			scale: {
+				'85': '0.85',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

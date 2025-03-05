@@ -122,6 +122,6 @@
 
   .floating-input input:focus ~ label,
   .floating-input input:not(:placeholder-shown) ~ label {
-    @apply transform -translate-y-6 scale-85 text-sistema-accent;
+    @apply transform -translate-y-6 scale-75 text-sistema-accent;
   }
 }

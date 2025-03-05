@@ -33,9 +33,9 @@ const Login = () => {
       {/* Seção da imagem (visível apenas em telas médias ou maiores) */}
       <div className="hidden md:flex md:flex-1 bg-gradient-to-tr from-black/60 to-transparent">
         <img 
-          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2426&q=80" 
-          alt="Sistema de Gestão" 
-          className="w-full h-full object-cover opacity-80"
+          src="/lovable-uploads/9ed84826-dfb8-42b8-91f5-3c86d06d3ea1.png" 
+          alt="Naturalmente Magra" 
+          className="w-full h-full object-cover"
         />
       </div>
       

@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Search, Bell, User, LogOut } from 'lucide-react';
+import { Home, BookOpen, Video, Users, User, Bell, LogOut } from 'lucide-react';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -9,57 +9,113 @@ const Dashboard = () => {
     navigate('/login');
   };
 
-  // Mock data for game/media cards
+  // Mock data for featured content
   const featuredItems = [
-    { id: 1, title: "Diablo Immortal", image: "lovable-uploads/4458c882-222a-4b8a-a149-96e9e329b08a.png", featured: true },
-    { id: 2, title: "Fantasy RPG", image: "lovable-uploads/fototeste2.png" },
-    { id: 3, title: "Action Game", image: "lovable-uploads/MockupCelularNew.png" },
-    { id: 4, title: "Adventure", image: "lovable-uploads/4458c882-222a-4b8a-a149-96e9e329b08a.png" },
-    { id: 5, title: "Strategy Game", image: "lovable-uploads/fototeste2.png" },
-    { id: 6, title: "Puzzle Game", image: "lovable-uploads/MockupCelularNew.png" },
+    { 
+      id: 1, 
+      title: "Nômade Milionário", 
+      subtitle: "LEGACY", 
+      image: "lovable-uploads/3ea44bce-308f-4181-af3a-3075682757eb.png", 
+      featured: true,
+      buttons: [
+        { text: "Comprar com 1-Clique", primary: true },
+        { text: "Comprar curso", primary: false }
+      ]
+    },
+    { id: 2, title: "Estratégia de vendas", image: "lovable-uploads/fototeste2.png" },
+    { id: 3, title: "Marketing Digital", image: "lovable-uploads/MockupCelularNew.png" },
+    { id: 4, title: "Investimentos", image: "lovable-uploads/4458c882-222a-4b8a-a149-96e9e329b08a.png" },
+  ];
+
+  // Mock data for user
+  const user = {
+    name: "Dra. Isadora Cameron",
+    level: "Nível 10",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+  };
+
+  // Mock data for courses
+  const myCourses = [
+    { id: 1, title: "Curso de Marketing", progress: 65, image: "lovable-uploads/fototeste2.png" },
+    { id: 2, title: "Finanças Pessoais", progress: 30, image: "lovable-uploads/MockupCelularNew.png" },
+    { id: 3, title: "Gestão de Tempo", progress: 85, image: "lovable-uploads/4458c882-222a-4b8a-a149-96e9e329b08a.png" },
   ];
 
   return (
-    <div className="min-h-screen bg-sistema-bg-primary text-sistema-text-primary flex">
+    <div className="min-h-screen bg-[#121212] text-white flex">
       {/* Sidebar */}
-      <aside className="w-20 md:w-64 h-screen bg-sistema-bg-secondary border-r border-sistema-border flex flex-col">
+      <aside className="w-20 md:w-64 h-screen bg-[#1A1A1A] border-r border-[#2A2A2A] flex flex-col">
         {/* Logo */}
-        <div className="p-4 border-b border-sistema-border">
-          <h1 className="text-xl font-bold bg-gradient-to-r from-sistema-accent to-sistema-accent-hover bg-clip-text text-transparent hidden md:block">GAME HUB</h1>
+        <div className="p-6 border-b border-[#2A2A2A]">
+          <h1 className="text-xl font-bold text-[#9b87f5] hidden md:block">ZION</h1>
           <div className="flex items-center justify-center md:hidden">
-            <span className="text-2xl font-bold bg-gradient-to-r from-sistema-accent to-sistema-accent-hover bg-clip-text text-transparent">G</span>
+            <span className="text-2xl font-bold text-[#9b87f5]">Z</span>
+          </div>
+        </div>
+
+        {/* User profile in sidebar */}
+        <div className="p-4 border-b border-[#2A2A2A]">
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 rounded-full overflow-hidden">
+              <img src={user.avatar} alt={user.name} className="h-full w-full object-cover" />
+            </div>
+            <div className="hidden md:block">
+              <p className="text-sm font-medium">{user.name}</p>
+              <p className="text-xs text-gray-400">{user.level}</p>
+            </div>
           </div>
         </div>
 
         {/* Navigation */}
         <nav className="flex-1 p-4">
-          <ul className="space-y-4">
+          <ul className="space-y-6">
             <li>
-              <a href="#" className="flex items-center space-x-2 p-2 rounded-lg bg-sistema-accent/10 border border-sistema-accent/20 text-sistema-accent">
-                <LayoutDashboard className="h-5 w-5" />
-                <span className="hidden md:inline">Dashboard</span>
+              <a href="#" className="flex items-center gap-3 p-2 text-white">
+                <Home className="h-5 w-5" />
+                <span className="hidden md:inline">Home</span>
               </a>
             </li>
             <li>
-              <a href="#" className="flex items-center space-x-2 p-2 rounded-lg text-sistema-text-secondary hover:bg-sistema-bg-primary hover:text-sistema-text-primary transition-colors">
-                <Search className="h-5 w-5" />
-                <span className="hidden md:inline">Discover</span>
+              <a href="#" className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors">
+                <BookOpen className="h-5 w-5" />
+                <span className="hidden md:inline">Meus cursos</span>
               </a>
             </li>
             <li>
-              <a href="#" className="flex items-center space-x-2 p-2 rounded-lg text-sistema-text-secondary hover:bg-sistema-bg-primary hover:text-sistema-text-primary transition-colors">
+              <div className="flex items-center gap-2">
+                <a href="#" className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors">
+                  <Video className="h-5 w-5" />
+                  <span className="hidden md:inline">Lives</span>
+                </a>
+                <span className="text-xs bg-red-500 px-1.5 py-0.5 rounded-sm">AO VIVO</span>
+              </div>
+            </li>
+            <li>
+              <a href="#" className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors">
+                <Users className="h-5 w-5" />
+                <span className="hidden md:inline">Comunidade</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors">
                 <User className="h-5 w-5" />
-                <span className="hidden md:inline">Profile</span>
+                <span className="hidden md:inline">Meu perfil</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors">
+                <Bell className="h-5 w-5" />
+                <span className="hidden md:inline">Notificações</span>
               </a>
             </li>
           </ul>
         </nav>
 
         {/* Logout */}
-        <div className="p-4 border-t border-sistema-border">
+        <div className="p-4 border-t border-[#2A2A2A]">
           <button 
             onClick={handleLogout}
-            className="flex items-center space-x-2 w-full p-2 rounded-lg text-sistema-text-secondary hover:bg-sistema-bg-primary hover:text-sistema-text-primary transition-colors"
+            className="flex items-center gap-3 w-full p-2 text-gray-400 hover:text-white transition-colors"
           >
             <LogOut className="h-5 w-5" />
             <span className="hidden md:inline">Logout</span>
@@ -69,52 +125,100 @@ const Dashboard = () => {
 
       {/* Main content */}
       <main className="flex-1 overflow-auto">
-        {/* Header */}
-        <header className="bg-sistema-bg-secondary border-b border-sistema-border p-4 flex justify-between items-center sticky top-0 z-10">
-          <h2 className="text-xl font-semibold">Featured Games</h2>
-          <div className="flex items-center space-x-4">
-            <button className="p-2 rounded-full hover:bg-sistema-bg-primary transition-colors">
-              <Search className="h-5 w-5" />
-            </button>
-            <button className="p-2 rounded-full hover:bg-sistema-bg-primary transition-colors">
-              <Bell className="h-5 w-5" />
-            </button>
-            <div className="h-8 w-8 rounded-full bg-sistema-accent flex items-center justify-center">
-              <span className="text-sistema-bg-primary font-medium">U</span>
-            </div>
-          </div>
-        </header>
-
         {/* Featured content */}
-        <div className="p-6">
-          {/* Featured item */}
-          <div className="relative mb-8 rounded-xl overflow-hidden">
-            <img 
-              src={featuredItems[0].image} 
-              alt="Featured Game" 
-              className="w-full h-64 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
-              <h3 className="text-2xl font-bold">{featuredItems[0].title}</h3>
-              <p className="text-sistema-text-secondary mb-4">Popular Action RPG</p>
-              <button className="bg-sistema-accent hover:bg-sistema-accent-hover text-black font-medium py-2 px-6 rounded-lg w-max transition-colors">
-                Play Now
-              </button>
+        <div className="relative h-[50vh] min-h-[400px]">
+          <img 
+            src={featuredItems[0].image} 
+            alt={featuredItems[0].title} 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex flex-col justify-center p-12">
+            <div className="max-w-xl">
+              <h1 className="text-4xl font-bold mb-1">
+                <span className="font-serif italic">{featuredItems[0].title}</span>
+              </h1>
+              <p className="text-sm tracking-widest mb-8">{featuredItems[0].subtitle}</p>
+              
+              <div className="flex flex-col sm:flex-row gap-3">
+                {featuredItems[0].buttons.map((button, index) => (
+                  <button 
+                    key={index}
+                    className={`
+                      ${button.primary 
+                        ? "bg-[#9b87f5] hover:bg-[#8a76e4] text-white" 
+                        : "bg-transparent border border-white/20 hover:bg-white/10 text-white"}
+                      font-medium py-3 px-6 rounded transition-colors flex items-center gap-2
+                    `}
+                  >
+                    {button.primary && (
+                      <span className="flex items-center justify-center h-5 w-5 bg-white/20 rounded-full">
+                        <i className="fas fa-shopping-cart text-xs"></i>
+                      </span>
+                    )}
+                    {button.text}
+                  </button>
+                ))}
+              </div>
+              
+              <div className="mt-4 text-gray-400 text-sm">
+                <span className="text-yellow-400">Disponível</span>, não perca!
+              </div>
             </div>
           </div>
-
-          {/* Game grid */}
-          <h3 className="text-xl font-semibold mb-4">All Games</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {featuredItems.slice(1).map((item) => (
-              <div key={item.id} className="rounded-lg overflow-hidden bg-sistema-bg-secondary border border-sistema-border hover:border-sistema-accent transition-colors">
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
-                  className="w-full h-40 object-cover"
-                />
-                <div className="p-3">
-                  <h4 className="font-medium truncate">{item.title}</h4>
+          
+          {/* Pagination dots */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+            <span className="h-2 w-2 bg-[#9b87f5] rounded-full"></span>
+            <span className="h-2 w-2 bg-white/30 rounded-full"></span>
+            <span className="h-2 w-2 bg-white/30 rounded-full"></span>
+            <span className="h-2 w-2 bg-white/30 rounded-full"></span>
+          </div>
+        </div>
+        
+        {/* My courses section */}
+        <div className="p-8">
+          <div className="flex justify-between items-center mb-6">
+            <div className="flex items-center gap-3">
+              <i className="fas fa-graduation-cap text-xl"></i>
+              <h2 className="text-xl font-semibold">Meus cursos</h2>
+            </div>
+            <div className="flex items-center gap-4">
+              <a href="#" className="text-sm text-gray-400 hover:text-white">ver todos</a>
+              <div className="flex gap-1">
+                <button className="h-8 w-8 rounded-full border border-[#333] flex items-center justify-center text-gray-400 hover:text-white">
+                  <i className="fas fa-chevron-left"></i>
+                </button>
+                <button className="h-8 w-8 rounded-full border border-[#333] flex items-center justify-center text-gray-400 hover:text-white">
+                  <i className="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          {/* Courses grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {myCourses.map((course) => (
+              <div key={course.id} className="bg-[#1A1A1A] rounded-lg overflow-hidden hover:ring-1 hover:ring-[#9b87f5]/50 transition-all">
+                <div className="relative h-40">
+                  <img 
+                    src={course.image} 
+                    alt={course.title} 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-medium">{course.title}</h3>
+                  <div className="mt-2 bg-[#333] h-1.5 rounded-full overflow-hidden">
+                    <div 
+                      className="bg-[#9b87f5] h-full rounded-full" 
+                      style={{ width: `${course.progress}%` }}
+                    ></div>
+                  </div>
+                  <div className="mt-1 flex justify-between text-xs text-gray-400">
+                    <span>Progresso</span>
+                    <span>{course.progress}%</span>
+                  </div>
                 </div>
               </div>
             ))}

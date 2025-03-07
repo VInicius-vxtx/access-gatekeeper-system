@@ -17,8 +17,6 @@ const Login = () => {
       setEmail(savedEmail);
       setPassword(savedPassword);
       setRemember(true);
-      
-      handleLogin(savedEmail, savedPassword);
     }
   }, []);
 

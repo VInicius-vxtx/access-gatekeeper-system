@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
@@ -10,13 +9,23 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  useEffect(() => {
+    const savedCredentials = localStorage.getItem('rememberedCredentials');
+    
+    if (savedCredentials) {
+      const { email: savedEmail, password: savedPassword } = JSON.parse(savedCredentials);
+      setEmail(savedEmail);
+      setPassword(savedPassword);
+      setRemember(true);
+      
+      handleLogin(savedEmail, savedPassword);
+    }
+  }, []);
+
+  const handleLogin = async (loginEmail: string, loginPassword: string) => {
     setIsLoading(true);
 
     try {
-      // Simulação de login bem-sucedido
-      // Em um app real, você faria uma chamada de API aqui
       setTimeout(() => {
         toast.success('Login realizado com sucesso!');
         navigate('/dashboard');
@@ -28,9 +37,20 @@ const Login = () => {
     }
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (remember) {
+      localStorage.setItem('rememberedCredentials', JSON.stringify({ email, password }));
+    } else {
+      localStorage.removeItem('rememberedCredentials');
+    }
+    
+    handleLogin(email, password);
+  };
+
   return (
     <div className="flex min-h-screen">
-      {/* Seção da imagem (visível apenas em telas médias ou maiores) */}
       <div className="hidden md:flex md:flex-1 bg-gradient-to-tr from-black/60 to-transparent">
         <img 
           src="lovable-uploads/fototeste2.png" 
@@ -39,7 +59,6 @@ const Login = () => {
         />
       </div>
       
-      {/* Seção do formulário */}
       <div className="flex-1 flex items-center justify-center p-8 bg-sistema-bg-secondary">
         <div className="w-full max-w-md animate-slide-in">
           <h1 className="text-3xl font-semibold mb-2 bg-gradient-to-r from-sistema-accent-important to-sistema-accent-important/80 bg-clip-text text-transparent">

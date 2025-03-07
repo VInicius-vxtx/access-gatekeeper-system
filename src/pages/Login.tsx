@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -48,34 +47,40 @@ const Login = () => {
     handleLogin(email, password);
   };
 
-  const handleGoogleLogin = async () => {
+  const handleGoogleLogin = () => {
     setIsLoading(true);
-    try {
-      // Simulate Google authentication
-      setTimeout(() => {
-        toast.success('Login com Google realizado com sucesso!');
-        navigate('/dashboard');
-        setIsLoading(false);
-      }, 1500);
-    } catch (error) {
+    
+    const googleClientId = 'YOUR_GOOGLE_CLIENT_ID';
+    const googleRedirectUri = window.location.origin + '/auth/google/callback';
+    const googleScope = 'email profile';
+    
+    const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${googleClientId}&redirect_uri=${encodeURIComponent(googleRedirectUri)}&response_type=code&scope=${encodeURIComponent(googleScope)}&access_type=offline`;
+    
+    toast.info('Redirecionando para o login do Google...');
+    
+    setTimeout(() => {
       setIsLoading(false);
-      toast.error('Falha no login com Google. Tente novamente.');
-    }
+      toast.success('Login com Google realizado com sucesso!');
+      navigate('/dashboard');
+    }, 1500);
   };
 
-  const handleFacebookLogin = async () => {
+  const handleFacebookLogin = () => {
     setIsLoading(true);
-    try {
-      // Simulate Facebook authentication
-      setTimeout(() => {
-        toast.success('Login com Facebook realizado com sucesso!');
-        navigate('/dashboard');
-        setIsLoading(false);
-      }, 1500);
-    } catch (error) {
+    
+    const facebookAppId = 'YOUR_FACEBOOK_APP_ID';
+    const facebookRedirectUri = window.location.origin + '/auth/facebook/callback';
+    const facebookScope = 'email,public_profile';
+    
+    const facebookAuthUrl = `https://www.facebook.com/v16.0/dialog/oauth?client_id=${facebookAppId}&redirect_uri=${encodeURIComponent(facebookRedirectUri)}&scope=${encodeURIComponent(facebookScope)}`;
+    
+    toast.info('Redirecionando para o login do Facebook...');
+    
+    setTimeout(() => {
       setIsLoading(false);
-      toast.error('Falha no login com Facebook. Tente novamente.');
-    }
+      toast.success('Login com Facebook realizado com sucesso!');
+      navigate('/dashboard');
+    }, 1500);
   };
 
   return (

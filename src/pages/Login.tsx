@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import LoginForm from '@/components/auth/LoginForm';
-import GoogleButton from '@/components/auth/GoogleButton';
-import FacebookButton from '@/components/auth/FacebookButton';
+import SocialLogin from '@/components/auth/SocialLogin';
+import LoginLayout from '@/components/auth/LoginLayout';
 
 const Login = () => {
   useEffect(() => {
@@ -36,48 +36,20 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen">
-      <div className="hidden md:flex md:flex-1 bg-gradient-to-tr from-black/60 to-transparent">
-        <img 
-          src="lovable-uploads/fototeste2.png" 
-          alt="Naturalmente Magra" 
-          className="w-full h-full object-cover"
-        />
-      </div>
+    <LoginLayout 
+      title="Bem-vindo ao Sistema"
+      subtitle="Faça login para continuar"
+    >
+      <LoginForm />
+      <SocialLogin />
       
-      <div className="flex-1 flex items-center justify-center p-8 bg-sistema-bg-secondary">
-        <div className="w-full max-w-md animate-slide-in">
-          <h1 className="text-3xl font-semibold mb-2 bg-gradient-to-r from-sistema-accent-important to-sistema-accent-important/80 bg-clip-text text-transparent">
-            Bem-vindo ao Sistema
-          </h1>
-          <p className="text-sistema-text-secondary mb-8">
-            Faça login para continuar
-          </p>
-          
-          <LoginForm />
-          
-          <div className="mt-8">
-            <div className="flex items-center my-6">
-              <div className="flex-1 border-t border-sistema-border"></div>
-              <span className="px-4 text-sm text-sistema-text-secondary">Ou continue com</span>
-              <div className="flex-1 border-t border-sistema-border"></div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <GoogleButton />
-              <FacebookButton />
-            </div>
-          </div>
-          
-          <p className="text-center mt-8 text-sistema-text-secondary">
-            Não tem uma conta? 
-            <Link to="/registro" className="ml-1 text-sistema-accent hover:text-sistema-accent-hover transition-colors">
-              Registre-se
-            </Link>
-          </p>
-        </div>
-      </div>
-    </div>
+      <p className="text-center mt-8 text-sistema-text-secondary">
+        Não tem uma conta? 
+        <Link to="/registro" className="ml-1 text-sistema-accent hover:text-sistema-accent-hover transition-colors">
+          Registre-se
+        </Link>
+      </p>
+    </LoginLayout>
   );
 };
 

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import LoginForm from '@/components/auth/LoginForm';
-import SocialLogin from '@/components/auth/SocialLogin';
 import LoginLayout from '@/components/auth/LoginLayout';
 
 const Login = () => {
@@ -41,7 +40,6 @@ const Login = () => {
       subtitle="Faça login para continuar"
     >
       <LoginForm />
-      <SocialLogin />
       
       <p className="text-center mt-8 text-sistema-text-secondary">
         Não tem uma conta? 

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
+import { generateVerificationCode } from '../utils/codeGenerator';
 
 type ResetStep = 'email' | 'verification' | 'newPassword';
 
@@ -12,10 +13,16 @@ const ForgotPassword = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [currentStep, setCurrentStep] = useState<ResetStep>('email');
   const [isLoading, setIsLoading] = useState(false);
+  const [expectedCode, setExpectedCode] = useState('');
 
   const handleSendResetEmail = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+
+    // Generate a new random code
+    const newCode = generateVerificationCode();
+    setExpectedCode(newCode);
+    console.log('Generated verification code:', newCode); // For testing purposes
 
     // Simulate API call to send reset email
     setTimeout(() => {
@@ -29,9 +36,9 @@ const ForgotPassword = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate API call to verify code
+    // Verify against the generated code
     setTimeout(() => {
-      if (verificationCode === '123456') { // Demo code for testing
+      if (verificationCode === expectedCode) {
         toast.success('Código verificado com sucesso');
         setCurrentStep('newPassword');
       } else {

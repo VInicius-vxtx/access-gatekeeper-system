@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import LoginForm from '@/components/auth/LoginForm';
@@ -5,13 +6,6 @@ import LoginLayout from '@/components/auth/LoginLayout';
 
 const Login = () => {
   useEffect(() => {
-    const savedCredentials = localStorage.getItem('rememberedCredentials');
-    
-    if (savedCredentials) {
-      const { email: savedEmail, password: savedPassword } = JSON.parse(savedCredentials);
-      // This will be handled by LoginForm component
-    }
-
     // Load Google OAuth API
     const loadGoogleAuth = () => {
       const script = document.createElement('script');

@@ -47,9 +47,12 @@ const Dashboard = () => {
       <aside className="w-20 md:w-64 h-screen bg-[#1A1A1A] border-r border-[#2A2A2A] flex flex-col">
         {/* Logo */}
         <div className="p-6 border-b border-[#2A2A2A]">
-          <h1 className="text-xl font-bold text-[#9b87f5] hidden md:block">ZION</h1>
+          <h1 className="text-xl font-bold hidden md:block">
+            <span className="text-[#F2FCE2]">Naturalmente</span>
+            <span className="text-[#D946EF]">Magra</span>
+          </h1>
           <div className="flex items-center justify-center md:hidden">
-            <span className="text-2xl font-bold text-[#9b87f5]">Z</span>
+            <span className="text-2xl font-bold text-[#D946EF]">NM</span>
           </div>
         </div>
 

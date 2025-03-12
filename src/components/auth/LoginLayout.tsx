@@ -20,6 +20,13 @@ const LoginLayout = ({ children, title, subtitle }: LoginLayoutProps) => {
       
       <div className="flex-1 flex items-center justify-center p-8 bg-sistema-bg-secondary">
         <div className="w-full max-w-md animate-slide-in">
+          <div className="mb-8">
+            <h1 className="text-3xl font-bold mb-2">
+              <span className="text-[#F2FCE2]">Naturalmente</span>
+              <span className="text-[#D946EF]">Magra</span>
+            </h1>
+          </div>
+          
           <h1 className="text-3xl font-semibold mb-2 bg-gradient-to-r from-sistema-accent-important to-sistema-accent-important/80 bg-clip-text text-transparent">
             {title}
           </h1>

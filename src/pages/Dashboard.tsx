@@ -1,8 +1,12 @@
+
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Home, BookOpen, Video, Users, User, Bell, LogOut } from 'lucide-react';
+import MyCourses from '../components/MyCourses';
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const [isCoursesOpen, setIsCoursesOpen] = useState(false);
 
   const handleLogout = () => {
     navigate('/login');
@@ -10,6 +14,14 @@ const Dashboard = () => {
 
   const navigateToDashboard = () => {
     navigate('/dashboard');
+  };
+
+  const openCourses = () => {
+    setIsCoursesOpen(true);
+  };
+
+  const closeCourses = () => {
+    setIsCoursesOpen(false);
   };
 
   // Mock data for featured content
@@ -89,7 +101,14 @@ const Dashboard = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors">
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  openCourses();
+                }} 
+                className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors"
+              >
                 <BookOpen className="h-5 w-5" />
                 <span className="hidden md:inline">Meus cursos</span>
               </a>
@@ -238,6 +257,9 @@ const Dashboard = () => {
           </div>
         </div>
       </main>
+
+      {/* My Courses Sidebar */}
+      <MyCourses isOpen={isCoursesOpen} onClose={closeCourses} />
     </div>
   );
 };

@@ -48,7 +48,7 @@ const Dashboard = () => {
         {/* Logo */}
         <div className="p-6 border-b border-[#2A2A2A]">
           <h1 className="text-xl font-bold hidden md:block">
-            <span className="text-[#7FFF00]">Naturalmente</span>
+            <span className="text-[#7FFF00]">Naturalmente </span>
             <span className="text-[#FF69B4]">Magra</span>
           </h1>
           <div className="flex items-center justify-center md:hidden">

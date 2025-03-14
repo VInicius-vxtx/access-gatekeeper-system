@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom';
 import { Home, BookOpen, Video, Users, User, Bell, LogOut } from 'lucide-react';
 
@@ -7,6 +6,10 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     navigate('/login');
+  };
+
+  const navigateToDashboard = () => {
+    navigate('/dashboard');
   };
 
   // Mock data for featured content
@@ -73,7 +76,14 @@ const Dashboard = () => {
         <nav className="flex-1 p-4">
           <ul className="space-y-6">
             <li>
-              <a href="#" className="flex items-center gap-3 p-2 text-white">
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateToDashboard();
+                }} 
+                className="flex items-center gap-3 p-2 text-white"
+              >
                 <Home className="h-5 w-5" />
                 <span className="hidden md:inline">Home</span>
               </a>

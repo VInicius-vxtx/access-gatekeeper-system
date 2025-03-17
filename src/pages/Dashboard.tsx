@@ -3,10 +3,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Home, BookOpen, Video, Users, User, Bell, LogOut } from 'lucide-react';
 import MyCourses from '../components/MyCourses';
+import ProfileEditor from '../components/ProfileEditor';
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const handleLogout = () => {
     navigate('/login');
@@ -22,6 +24,14 @@ const Dashboard = () => {
 
   const closeCourses = () => {
     setIsCoursesOpen(false);
+  };
+
+  const openProfile = () => {
+    setIsProfileOpen(true);
+  };
+
+  const closeProfile = () => {
+    setIsProfileOpen(false);
   };
 
   // Mock data for featured content
@@ -129,7 +139,14 @@ const Dashboard = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors">
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  openProfile();
+                }} 
+                className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors"
+              >
                 <User className="h-5 w-5" />
                 <span className="hidden md:inline">Meu perfil</span>
               </a>
@@ -260,6 +277,9 @@ const Dashboard = () => {
 
       {/* My Courses Sidebar */}
       <MyCourses isOpen={isCoursesOpen} onClose={closeCourses} />
+      
+      {/* Profile Editor */}
+      <ProfileEditor isOpen={isProfileOpen} onClose={closeProfile} />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Home, BookOpen, Video, Users, User, Bell, LogOut } from 'lucide-react';
@@ -19,6 +20,10 @@ const Dashboard = () => {
 
   const navigateToProfile = () => {
     navigate('/profile');
+  };
+
+  const navigateToMyCourses = () => {
+    navigate('/meus-cursos');
   };
 
   const openCourses = () => {
@@ -111,7 +116,7 @@ const Dashboard = () => {
                 href="#" 
                 onClick={(e) => {
                   e.preventDefault();
-                  openCourses();
+                  navigateToMyCourses();
                 }} 
                 className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors"
               >

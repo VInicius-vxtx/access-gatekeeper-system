@@ -26,6 +26,10 @@ const Dashboard = () => {
     navigate('/meus-cursos');
   };
 
+  const navigateToNotifications = () => {
+    navigate('/notificacoes');
+  };
+
   const openCourses = () => {
     setIsCoursesOpen(true);
   };
@@ -153,7 +157,14 @@ const Dashboard = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors">
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateToNotifications();
+                }} 
+                className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors"
+              >
                 <Bell className="h-5 w-5" />
                 <span className="hidden md:inline">Notificações</span>
               </a>

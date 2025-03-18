@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Home, BookOpen, Video, Users, User, Bell, LogOut } from 'lucide-react';
@@ -18,6 +17,10 @@ const Dashboard = () => {
     navigate('/dashboard');
   };
 
+  const navigateToProfile = () => {
+    navigate('/profile');
+  };
+
   const openCourses = () => {
     setIsCoursesOpen(true);
   };
@@ -34,7 +37,6 @@ const Dashboard = () => {
     setIsProfileOpen(false);
   };
 
-  // Mock data for featured content
   const featuredItems = [
     { 
       id: 1, 
@@ -52,14 +54,12 @@ const Dashboard = () => {
     { id: 4, title: "Investimentos", image: "lovable-uploads/4458c882-222a-4b8a-a149-96e9e329b08a.png" },
   ];
 
-  // Mock data for user
   const user = {
     name: "Dra. Isadora Cameron",
     level: "Nível 10",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg"
   };
 
-  // Mock data for courses
   const myCourses = [
     { id: 1, title: "Curso de Marketing", progress: 65, image: "lovable-uploads/fototeste2.png" },
     { id: 2, title: "Finanças Pessoais", progress: 30, image: "lovable-uploads/MockupCelularNew.png" },
@@ -68,9 +68,7 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-[#121212] text-white flex">
-      {/* Sidebar */}
       <aside className="w-20 md:w-64 h-screen bg-[#1A1A1A] border-r border-[#2A2A2A] flex flex-col">
-        {/* Logo */}
         <div className="p-6 border-b border-[#2A2A2A]">
           <h1 className="text-xl font-bold hidden md:block">
             <span className="text-[#7FFF00]">Naturalmente </span>
@@ -81,7 +79,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* User profile in sidebar */}
         <div className="p-4 border-b border-[#2A2A2A]">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-full overflow-hidden">
@@ -94,7 +91,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Navigation */}
         <nav className="flex-1 p-4">
           <ul className="space-y-6">
             <li>
@@ -143,7 +139,7 @@ const Dashboard = () => {
                 href="#" 
                 onClick={(e) => {
                   e.preventDefault();
-                  openProfile();
+                  navigateToProfile();
                 }} 
                 className="flex items-center gap-3 p-2 text-gray-400 hover:text-white transition-colors"
               >
@@ -160,7 +156,6 @@ const Dashboard = () => {
           </ul>
         </nav>
 
-        {/* Logout */}
         <div className="p-4 border-t border-[#2A2A2A]">
           <button 
             onClick={handleLogout}
@@ -172,9 +167,7 @@ const Dashboard = () => {
         </div>
       </aside>
 
-      {/* Main content */}
       <main className="flex-1 overflow-auto">
-        {/* Featured content */}
         <div className="relative h-[50vh] min-h-[400px]">
           <img 
             src={featuredItems[0].image} 
@@ -215,7 +208,6 @@ const Dashboard = () => {
             </div>
           </div>
           
-          {/* Pagination dots */}
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
             <span className="h-2 w-2 bg-[#9b87f5] rounded-full"></span>
             <span className="h-2 w-2 bg-white/30 rounded-full"></span>
@@ -224,7 +216,6 @@ const Dashboard = () => {
           </div>
         </div>
         
-        {/* My courses section */}
         <div className="p-8">
           <div className="flex justify-between items-center mb-6">
             <div className="flex items-center gap-3">
@@ -244,7 +235,6 @@ const Dashboard = () => {
             </div>
           </div>
           
-          {/* Courses grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {myCourses.map((course) => (
               <div key={course.id} className="bg-[#1A1A1A] rounded-lg overflow-hidden hover:ring-1 hover:ring-[#9b87f5]/50 transition-all">
@@ -275,10 +265,8 @@ const Dashboard = () => {
         </div>
       </main>
 
-      {/* My Courses Sidebar */}
       <MyCourses isOpen={isCoursesOpen} onClose={closeCourses} />
       
-      {/* Profile Editor */}
       <ProfileEditor isOpen={isProfileOpen} onClose={closeProfile} />
     </div>
   );

@@ -57,12 +57,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-[#121212] text-white flex">
       <aside className="w-[220px] h-screen bg-[#191919] border-r border-[#333] flex flex-col">
         <div className="p-6 flex items-center gap-2">
-          <div className="text-purple-500 text-2xl font-bold">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 5L12 19L19 5" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          <span className="text-2xl font-bold text-white">zion</span>
+          <span className="text-2xl font-bold text-white">Naturalmente Magra</span>
         </div>
 
         <div className="p-4 flex items-center gap-3">

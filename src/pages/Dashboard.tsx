@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Home, BookOpen, Video, Users, User, Bell, LogOut } from 'lucide-react';
@@ -56,7 +55,6 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-[#121212] text-white flex">
-      {/* Sidebar - updated to match the design in the image */}
       <aside className="w-[220px] h-screen bg-[#191919] border-r border-[#333] flex flex-col">
         <div className="p-6 flex items-center gap-2">
           <div className="text-purple-500 text-2xl font-bold">
@@ -96,7 +94,7 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
-              <Link to="#" className="flex items-center gap-3 p-2 text-gray-400 hover:text-white hover:bg-[#252525] rounded-md transition-colors">
+              <Link to="/lives" className="flex items-center gap-3 p-2 text-gray-400 hover:text-white hover:bg-[#252525] rounded-md transition-colors">
                 <Video className="h-5 w-5" />
                 <span>Lives</span>
               </Link>
@@ -137,7 +135,6 @@ const Dashboard = () => {
         </div>
       </aside>
 
-      {/* Main content */}
       <main className="flex-1 overflow-auto">
         <div className="relative h-[50vh] min-h-[400px]">
           <img 

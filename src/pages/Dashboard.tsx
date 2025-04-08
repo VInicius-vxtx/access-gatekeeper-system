@@ -57,7 +57,10 @@ const Dashboard = () => {
     <div className="min-h-screen bg-[#121212] text-white flex">
       <aside className="w-[220px] h-screen bg-[#191919] border-r border-[#333] flex flex-col">
         <div className="p-6 flex items-center gap-2">
-          <span className="text-2xl font-bold text-white">Naturalmente Magra</span>
+          <span className="text-2xl font-bold">
+            <span className="text-[#7FFF00]">Naturalmente</span>{' '}
+            <span className="text-[#D946EF]">Magra</span>
+          </span>
         </div>
 
         <div className="p-4 flex items-center gap-3">

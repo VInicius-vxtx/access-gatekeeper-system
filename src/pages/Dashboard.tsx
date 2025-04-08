@@ -1,6 +1,7 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, BookOpen, Video, Users, User, Bell, LogOut } from 'lucide-react';
+import { Home, BookOpen, Video, Users, User, Bell, LogOut, Bookmark } from 'lucide-react';
 import MyCourses from '../components/MyCourses';
 import ProfileEditor from '../components/ProfileEditor';
 
@@ -98,8 +99,8 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
-              <Link to="#" className="flex items-center gap-3 p-2 text-gray-400 hover:text-white hover:bg-[#252525] rounded-md transition-colors">
-                <BookOpen className="h-5 w-5" />
+              <Link to="/aulas-salvas" className="flex items-center gap-3 p-2 text-gray-400 hover:text-white hover:bg-[#252525] rounded-md transition-colors">
+                <Bookmark className="h-5 w-5" />
                 <span>Aulas salvas</span>
               </Link>
             </li>
